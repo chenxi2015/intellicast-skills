@@ -26,6 +26,9 @@ Rules:
 - `export` and `screenshot` are render-only.
 - `undo` and `redo` operate on persisted history.
 - `editor style` is legacy compatibility; prefer narrow editor commands.
+- Validate edits by reading back the relevant `inspect` section after each command.
+- `help` and `status` are read or host-state commands, not persistence commands.
+- `del` removes the project bundle and is not undoable via project edit history.
 
 Current persistent editor commands:
 
@@ -39,5 +42,25 @@ Current persistent editor commands:
 
 Current read commands:
 
+- `help`
 - `status`
 - `inspect`
+
+Current render-only commands:
+
+- `export`
+- `screenshot`
+
+Current host or project lifecycle commands:
+
+- `record`
+- `stop`
+- `status`
+- `del`
+
+Recommended agent loop:
+
+1. `inspect`
+2. one narrow edit command
+3. `inspect` the affected section again
+4. optional `history`, `screenshot`, or `export` validation

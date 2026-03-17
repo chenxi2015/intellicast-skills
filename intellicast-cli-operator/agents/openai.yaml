@@ -1,4 +1,4 @@
 interface:
   display_name: "IntelliCast CLI Operator"
-  short_description: "Operate IntelliCast projects through intellicast-cli."
-  default_prompt: "Use $intellicast-cli-operator to inspect an IntelliCast project, apply supported CLI edits, and validate the persisted result."
+  short_description: "Inspect and edit IntelliCast projects via CLI."
+  default_prompt: "Use $intellicast-cli-operator to inspect an IntelliCast project, choose the smallest supported intellicast-cli command, and validate persisted state with inspect before any screenshot or export."
