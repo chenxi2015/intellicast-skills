@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [ "$#" -ne 1 ]; then
+  echo "Usage: scripts/validate_skill <skill_directory>" >&2
+  exit 1
+fi
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SKILL_DIR="$1"
+
+if command -v python3 >/dev/null 2>&1; then
+  exec python3 "$SCRIPT_DIR/validate_skill.py" "$SKILL_DIR"
+fi
+
+if command -v ruby >/dev/null 2>&1; then
+  exec ruby "$SCRIPT_DIR/validate_skill.rb" "$SKILL_DIR"
+fi
+
+echo "No supported runtime found. Need python3 or ruby." >&2
+exit 1

@@ -27,15 +27,18 @@ npx skills add https://github.com/chenxi2015/intellicast-skills --skill intellic
 
 ## Validate locally
 
-Use the bundled no-dependency Python validator:
+Use the bundled validator entrypoint:
+
+```bash
+./scripts/validate_skill intellicast-cli-operator
+```
+
+It prefers the no-dependency Python validator and falls back to Ruby if needed.
+
+Direct runtimes are also available:
 
 ```bash
 python3 scripts/validate_skill.py intellicast-cli-operator
-```
-
-If you want a second parser implementation, the Ruby validator also works on macOS:
-
-```bash
 ruby scripts/validate_skill.rb intellicast-cli-operator
 ```
 
